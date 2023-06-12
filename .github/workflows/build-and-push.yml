@@ -47,6 +47,6 @@ jobs:
         env:
           webhook_url: ${{ secrets.WATCHTOWER_URL }}
           webhook_secret: ${{ secrets.WATCHTOWER_TOKEN }}
-          curl_opts: '-H "Authorization: Bearer ${{ secrets.WATCHTOWER_TOKEN }}"'
+          curl_opts: "--header 'Authorization: Bearer ${{ secrets.WATCHTOWER_TOKEN }}'"
           verbose: true
 
