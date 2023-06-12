@@ -41,12 +41,9 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-
+      
       - name: Trigger watchtower webhook
-        uses: distributhor/workflow-webhook@v3
-        env:
-          webhook_url: ${{ secrets.WATCHTOWER_URL }}
-          webhook_secret: ${{ secrets.WATCHTOWER_TOKEN }}
-          curl_opts: "--header 'Authorization: Bearer ${{ secrets.WATCHTOWER_TOKEN }}'"
-          verbose: true
+        uses: wei/curl@v1
+        with:
+          args: "-H 'Authorization: Bearer ${{ secrets.WATCHTOWER_TOKEN }}' ${{ secrets.WATCHTOWER_URL}}"
 
