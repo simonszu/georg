@@ -41,3 +41,10 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+
+      - name: Trigger watchtower webhook
+        uses: distributhor/workflow-webhook
+        env:
+          webhook_url: ${{ secrets.WEBHOOK_URL }}
+          curl_opts: '-H "Authorization: Bearer ${{ secrets.WEBHOOK_TOKEN }}"'
+
