@@ -1,9 +1,9 @@
 FROM python:3
 
-WORKDIR /app
-COPY requirements.txt requirements.txt
-RUN pip3 install -r requirements.txt
+WORKDIR /usr/src/app
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
 
-COPY src/ /bot/
+COPY . .
 
-CMD ["python3", "/bot/bot.py"]
+CMD [ "python", "./bot.py" ]
