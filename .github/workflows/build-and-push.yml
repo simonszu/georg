@@ -45,6 +45,6 @@ jobs:
       - name: Trigger watchtower webhook
         uses: distributhor/workflow-webhook@v3
         env:
-          webhook_url: ${{ secrets.WEBHOOK_URL }}
-          curl_opts: '-H "Authorization: Bearer ${{ secrets.WEBHOOK_TOKEN }}"'
+          webhook_url: ${{ secrets.WATCHTOWER_URL }}
+          curl_opts: '-H "Authorization: Bearer ${{ secrets.WATCHTOWER_TOKEN }}"'
 
