@@ -43,7 +43,7 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
       
       - name: Trigger watchtower webhook
-        uses: wei/curl@v1
+        uses: enflo/curl-action@master
         with:
-          args: "-H 'Authorization: Bearer ${{ secrets.WATCHTOWER_TOKEN }}' ${{ secrets.WATCHTOWER_URL}}"
+          curl: "-H 'Authorization: Bearer ${{ secrets.WATCHTOWER_TOKEN }}' ${{ secrets.WATCHTOWER_URL}}"
 
