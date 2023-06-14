@@ -21,11 +21,14 @@ async def on_message(message):
     return
 
   if message.content == 'ping':
+    print(f'Ping from {message.author}')
     await message.channel.send('pong')
 
   if message.content == "!react":
+    print(f'React request from {message.author}')
     c_channel = discord.utils.get(message.guild.text_channels, name='counting channel')
     messages = await c_channel.history(limit=2).flatten()
+    print(messages)
     if message.channel == c_channel and int(messages[1].content) + 1 != int(message.content):
         await message.delete()
 
